@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "16069377988",
+    "project_id": "nite-3946f",
+    "storage_bucket": "nite-3946f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16069377988:android:6d3375195cda5dd907ee91",
+        "android_client_info": {
+          "package_name": "com.michaelgrigoryan.nite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16069377988-i71cphe9qfbqb03o0438p3nibda5mic8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtg6Ir-oUVB2CP8J9eE-J_fQEAnj5O1-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16069377988-i71cphe9qfbqb03o0438p3nibda5mic8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
