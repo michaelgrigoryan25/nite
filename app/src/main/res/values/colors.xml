@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Custom Colors -->
+    <color name="honey_yellow">#FFB30F</color>
+    <color name="blue_crayola">#0075F2</color>
+    <color name="green_blue">#0267C1</color>
+    <color name="green_munsell">#06A77D</color>
+    <color name="rich_white">#FEFFFE</color>
+    <color name="rich_black">#080705</color>
 </resources>

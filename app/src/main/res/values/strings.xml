@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Nite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_a_note">Create a note</string>
+    <string name="more">More</string>
 </resources>
