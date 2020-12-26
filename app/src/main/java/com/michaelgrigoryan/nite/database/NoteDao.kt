@@ -3,6 +3,7 @@ package com.michaelgrigoryan.nite.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.michaelgrigoryan.nite.models.Note
 
 @Dao
@@ -12,4 +13,7 @@ interface NoteDao {
 
     @Insert
     fun createNote(vararg note: Note)
+
+    @Update
+    fun updateNote(note: Note)
 }
