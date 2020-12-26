@@ -9,9 +9,9 @@ buildscript {
     dependencies {
         def nav_version = "2.3.2"
 
+        // Core
         classpath "com.android.tools.build:gradle:4.1.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
         // Google Services (Including Firebase)
         classpath 'com.google.gms:google-services:4.3.4'
         // Safe Args
