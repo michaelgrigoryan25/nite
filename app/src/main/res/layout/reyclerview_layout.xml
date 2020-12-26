@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingBottom="@dimen/_20sdp"
+    android:paddingTop="@dimen/_20sdp"
+    android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:textColor="@color/jet_black"
+        android:text="Heading"
+        android:id="@+id/heading"
+        android:textSize="@dimen/_20sdp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/content"
+        android:textColor="@color/dimmed_gray"
+        android:text="Note Contents"
+        android:layout_gravity="start"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/datefield"
+        android:textColor="@color/dimmed_gray"
+        android:text="Datefield"
+        android:layout_gravity="start"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_65sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

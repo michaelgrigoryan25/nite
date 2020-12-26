@@ -6,17 +6,29 @@
     tools:context=".ui.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/note_list"
+        android:id="@+id/notes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_view_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/create_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_24"
-        android:contentDescription="@string/create_a_note"
         android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"/>
+        android:contentDescription="@string/create_a_note"
+        android:src="@drawable/ic_baseline_add_24" />
+
+    <TextView
+        android:id="@+id/no_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_notes"
+        android:textColor="@color/dimmed_gray"
+        android:textSize="@dimen/_20sdp"
+        android:visibility="gone" />
 
 </FrameLayout>

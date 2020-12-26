@@ -2,4 +2,5 @@
 <resources>
     <string name="create_a_note">Create a note</string>
     <string name="more">More</string>
+    <string name="no_notes">You don\'t have any notes</string>
 </resources>

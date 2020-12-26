@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    
-    <!-- Custom Colors -->
+    <!-- Handpicked colors generated from https://coolors.co -->
+
+    <!-- Light Theme -->
     <color name="honey_yellow">#FFB30F</color>
     <color name="blue_crayola">#0075F2</color>
     <color name="green_blue">#0267C1</color>
     <color name="green_munsell">#06A77D</color>
+    <color name="dimmed_gray">#6D6466</color>
     <color name="rich_white">#FEFFFE</color>
+    <color name="jet_black">#333232</color>
     <color name="rich_black">#080705</color>
+
+    <!-- Dark Theme -->
+    <color name="ochre_orange">#C17817</color>
+    <color name="blue_ming">#16697A</color>
+
+    <color name="moss_green">#758E4F</color>
+
+    <color name="mint_white">#F0F7F4</color>
+    <color name="jungle_black">#00120B</color>
 </resources>
