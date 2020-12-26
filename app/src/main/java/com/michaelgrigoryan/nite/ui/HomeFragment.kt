@@ -16,8 +16,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.text.SimpleDateFormat
-import java.util.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -25,6 +23,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
         val buttonCreateNote: FloatingActionButton = view.findViewById(R.id.create_note)
+        val recyclerView: RecyclerView = view.findViewById(R.id.notes)
+        val noNotes: TextView = view.findViewById(R.id.no_notes)
+
+        recyclerView.adapter = RecyclerAdapter(emptyList())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         buttonCreateNote.setOnClickListener {
             view.findNavController().navigate(R.id.action_homeFragment_to_newNoteFragment)
         }
@@ -33,23 +37,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val db = Database.setup(requireContext()).noteDao()
             val notes: List<Note> = db.getAll()
 
-//            db.createNote(
-//                Note(
-//                    0,
-//                    "This is a title",
-//                    "This is a description",
-//                    SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(Date())
-//                )
-//            )
-
             withContext(Dispatchers.Main) {
-                val recyclerView: RecyclerView = view.findViewById(R.id.notes)
-                val noNotes: TextView = view.findViewById(R.id.no_notes)
-
-                if (notes.isEmpty()) noNotes.visibility = View.VISIBLE
+                if (notes.isEmpty()) {
+                    noNotes.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                }
                 else {
                     recyclerView.adapter = RecyclerAdapter(notes)
                     recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    recyclerView.visibility = View.VISIBLE
                 }
             }
         }

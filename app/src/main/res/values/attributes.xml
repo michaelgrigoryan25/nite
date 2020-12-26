@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cardBackground" format="reference" />
+
+    <!--  Text inside the card  -->
+    <attr name="cardTextHeading" format="reference" />
+    <attr name="cardTextContent" format="reference" />
+    <attr name="cardTextDate" format="reference" />
+</resources>
