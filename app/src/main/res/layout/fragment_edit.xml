@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.EditFragment">
+    style="?colorOnSecondary"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    tools:context=".ui.NewNoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Edit note" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            style="?colorOnPrimary"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
+            app:startIconContentDescription="Heading">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntubold"
+                android:hint="Heading"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10sdp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            style="?colorOnPrimary"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
+            app:startIconContentDescription="Heading">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_content"
+                android:textAlignment="gravity"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/ubuntumedium"
+                android:hint="Content"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:lines="10"
+                android:minLines="6"
+                android:inputType="textMultiLine" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/save_edited_note_button"
+        android:visibility="invisible"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_check_24"
+        android:contentDescription="@string/save_note" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
