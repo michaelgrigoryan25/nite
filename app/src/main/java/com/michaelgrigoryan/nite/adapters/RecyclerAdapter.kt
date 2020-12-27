@@ -41,7 +41,7 @@ class RecyclerAdapter(
 
         holder.heading.text = truncateString(notes[position].heading.toString(), 20)
         holder.content.text = truncateString(notes[position].note.toString(), 15)
-        holder.datefield.text = notes[position].time
+        holder.datefield.text = ("Last edited at " + notes[position].time)
         holder.container.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToEditFragment(notes[position])
             holder.container.findNavController().navigate(action)

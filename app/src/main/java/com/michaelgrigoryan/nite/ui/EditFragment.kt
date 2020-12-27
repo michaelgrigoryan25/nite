@@ -31,6 +31,7 @@ class EditFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
 
         val saveButton: FloatingActionButton = view.findViewById(R.id.save_edited_note_button)
+        val deleteButton: FloatingActionButton = view.findViewById(R.id.delete_note_button)
         val headingInput: TextInputEditText = view.findViewById(R.id.input_heading)
         val contentInput: TextInputEditText = view.findViewById(R.id.input_content)
 
@@ -53,6 +54,25 @@ class EditFragment : Fragment() {
             }
         }
 
+        deleteButton.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                val db = Database.setup(requireContext()).noteDao()
+                db.deleteNote(
+                        Note(
+                                args.noteToBeUpdated.id,
+                                args.noteToBeUpdated.heading,
+                                args.noteToBeUpdated.note,
+                                args.noteToBeUpdated.time
+                        )
+                )
+
+                withContext(Dispatchers.Main) {
+                    view.clearFocus()
+                    view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
+                }
+            }
+        }
+
         saveButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
                 val db = Database.setup(requireContext()).noteDao()
@@ -60,12 +80,13 @@ class EditFragment : Fragment() {
                     args.noteToBeUpdated.id,
                     headingInput.text.toString(),
                     contentInput.text.toString(),
-                    SimpleDateFormat("dd/M/yyyy hh:mm").format(Date())
+                    SimpleDateFormat("MMMM dd hh:mm").format(Date())
                 )
 
                 db.updateNote(updatedNote)
 
                 withContext(Dispatchers.Main) {
+                    view.clearFocus()
                     view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
                 }
             }

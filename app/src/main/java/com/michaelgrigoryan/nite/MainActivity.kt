@@ -27,14 +27,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-<<<<<<< HEAD
-    /**
-=======
-    /*
->>>>>>> 99703b4651d74f2b69b6148d98a6dbf26b2fa3a7
-     * When using setupActionBarWithNavController(), you need to override onSupportNavigateUp() to trigger the Up icon in the Action Bar as per the documentation at:
-     * https://developer.android.com/guide/navigation/navigation-ui#action_bar
-     */
+
     override fun onSupportNavigateUp(): Boolean {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
