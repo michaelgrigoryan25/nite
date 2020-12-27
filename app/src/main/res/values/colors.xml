@@ -2,22 +2,29 @@
 <resources>
     <!-- Handpicked colors generated from https://coolors.co -->
 
-    <!-- Light Theme -->
     <color name="honey_yellow">#FFB30F</color>
+    <color name="ochre_orange">#C17817</color>
+
+    <color name="blue_ming">#16697A</color>
     <color name="blue_crayola">#0075F2</color>
     <color name="green_blue">#0267C1</color>
+
+    <color name="maximum_blue_green">#06BCC1</color>
+
     <color name="green_munsell">#06A77D</color>
-    <color name="dimmed_gray">#6D6466</color>
-    <color name="rich_white">#FEFFFE</color>
-    <color name="jet_black">#333232</color>
-    <color name="rich_black">#080705</color>
-
-    <!-- Dark Theme -->
-    <color name="ochre_orange">#C17817</color>
-    <color name="blue_ming">#16697A</color>
-
     <color name="moss_green">#758E4F</color>
 
+    <color name="dimmed_gray">#6D6466</color>
+    <color name="gray_web">#788585</color>
+
+    <color name="lavender_white">#F5EDF0</color>
+    <color name="rich_white">#FEFFFE</color>
     <color name="mint_white">#F0F7F4</color>
-    <color name="jungle_black">#00120B</color>
+    <color name="white_alternative">#FBFBFB</color>
+
+    <color name="jet_black">#333232</color>
+    <color name="rich_black">#080705</color>
+    <color name="dimmed_black">#252525</color>
+    <color name="raisin_black">#2C2C34</color>
+
 </resources>

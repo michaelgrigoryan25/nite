@@ -4,32 +4,48 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.michaelgrigoryan.nite.R
 import com.michaelgrigoryan.nite.models.Note
+import com.michaelgrigoryan.nite.ui.HomeFragmentDirections
 
 class RecyclerAdapter(
     private val notes: List<Note>
 ): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        var heading: TextView = view.findViewById(R.id.heading)
-        var content: TextView = view.findViewById(R.id.content)
-        var datefield: TextView = view.findViewById(R.id.datefield)
+        val heading: TextView = view.findViewById(R.id.heading)
+        val content: TextView = view.findViewById(R.id.content)
+        val datefield: TextView = view.findViewById(R.id.datefield)
+        val container: CoordinatorLayout = view.findViewById(R.id.noteContainer)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater
+        val view = LayoutInflater
                 .from(parent.context)
                 .inflate(R.layout.reyclerview_layout, parent, false)
-        )
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.heading.text = notes[position].heading
-        holder.content.text = notes[position].note
+
+        fun truncateString(string: String, maxChar: Int): String {
+            return if (string.length < maxChar) {
+                string
+            } else {
+                (string.trim().subSequence(0, maxChar)).toString() + "..."
+            }
+        }
+
+        holder.heading.text = truncateString(notes[position].heading.toString(), 20)
+        holder.content.text = truncateString(notes[position].note.toString(), 15)
         holder.datefield.text = notes[position].time
+        holder.container.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToEditFragment(notes[position])
+            holder.container.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int = notes.size

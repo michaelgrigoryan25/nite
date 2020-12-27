@@ -2,15 +2,18 @@
     <!-- Base application theme. -->
     <style name="Theme.Nite" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_ming</item>
-        <item name="colorPrimaryVariant">@color/blue_ming</item>
-        <item name="colorOnPrimary">@color/mint_white</item>
+        <item name="colorPrimary">@color/ochre_orange</item>
+        <item name="colorPrimaryVariant">@color/ochre_orange</item>
+        <item name="colorOnPrimary">@color/rich_white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/ochre_orange</item>
         <item name="colorSecondaryVariant">@color/moss_green</item>
         <item name="colorOnSecondary">@color/rich_black</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="cardBackground">@color/dimmed_black</item>
     </style>
 </resources>
