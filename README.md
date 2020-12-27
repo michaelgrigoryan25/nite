@@ -1,3 +1,4 @@
+<!-- DO NOT REMOVE - contributor_list:data:start:["MichaelGrigoryan25", "ImgBotApp"]:end -->
 # Nite 📝
 
 Nite is an open-source note-taking app for Android based systems.
