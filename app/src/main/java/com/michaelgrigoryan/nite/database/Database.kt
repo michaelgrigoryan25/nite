@@ -24,6 +24,7 @@ abstract class Database: RoomDatabase() {
                     com.michaelgrigoryan.nite.database.Database::class.java,
                     "nite-db"
                 )
+                    // This line will be replaced if gone to production
                     .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = NEW
