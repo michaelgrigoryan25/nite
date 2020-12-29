@@ -48,12 +48,11 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
                         0,
                         headingInput.text.toString(),
                         contentInput.text.toString(),
-                        SimpleDateFormat("MMMM dd hh:mm").format(Date())
+                        SimpleDateFormat("dd/M/yyyy hh:mm").format(Date())
                 )
 
                 db.createNote(note)
                 withContext(Dispatchers.Main) {
-                    view.clearFocus()
                     view.findNavController().navigate(R.id.action_newNoteFragment_to_homeFragment)
                 }
             }

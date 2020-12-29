@@ -41,8 +41,8 @@
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             style="?colorOnPrimary"
-            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
-            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
             app:startIconContentDescription="Heading">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -62,16 +62,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/delete_note_button"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_65sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_delete_24"
-        android:contentDescription="@string/save_note" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save_edited_note_button"

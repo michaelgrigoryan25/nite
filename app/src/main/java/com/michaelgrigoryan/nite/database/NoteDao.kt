@@ -1,6 +1,9 @@
 package com.michaelgrigoryan.nite.database
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import androidx.room.Update
 import com.michaelgrigoryan.nite.models.Note
 
 @Dao
@@ -13,7 +16,4 @@ interface NoteDao {
 
     @Update
     fun updateNote(note: Note)
-
-    @Delete
-    fun deleteNote(note: Note)
 }
