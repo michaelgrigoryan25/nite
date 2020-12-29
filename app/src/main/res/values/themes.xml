@@ -16,7 +16,7 @@
         <!-- Custom Values -->
         <item name="cardBackground">@color/rich_white</item>
         <item name="cardTextHeading">@color/raisin_black</item>
-        <item name="cardTextContent">@color/gray_web</item>
+        <item name="cardTextContent">@color/onyx_gray</item>
         <item name="cardTextDate">@color/blue_crayola</item>
     </style>
 </resources>

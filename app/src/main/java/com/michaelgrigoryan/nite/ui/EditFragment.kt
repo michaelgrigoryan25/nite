@@ -30,7 +30,6 @@ class EditFragment : Fragment() {
     ): View {
 
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
-        val deleteButton: FloatingActionButton = view.findViewById(R.id.delete_note_button)
         val saveButton: FloatingActionButton = view.findViewById(R.id.save_edited_note_button)
         val deleteButton: FloatingActionButton = view.findViewById(R.id.delete_note_button)
         val headingInput: TextInputEditText = view.findViewById(R.id.input_heading)
@@ -101,8 +100,7 @@ class EditFragment : Fragment() {
                 db.updateNote(updatedNote)
 
                 withContext(Dispatchers.Main) {
-                    view.clearFocus()
-                    view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
+                    view.findNavController().popBackStack()
                 }
             }
         }
