@@ -21,28 +21,28 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val buttonCreateNote: FloatingActionButton = view.findViewById(R.id.create_note)
         val recyclerView: RecyclerView = view.findViewById(R.id.notes)
         val noNotes: TextView = view.findViewById(R.id.no_notes)
 
         recyclerView.adapter = RecyclerAdapter(emptyList())
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
         buttonCreateNote.setOnClickListener {
             view.findNavController().navigate(R.id.action_homeFragment_to_newNoteFragment)
         }
 
         GlobalScope.launch(Dispatchers.IO) {
             val db = Database.setup(requireContext()).noteDao()
-            val notes: List<Note> = db.getAll()
+            val notes: List<Note> = db.getAll().reversed()
 
-            withContext(Dispatchers.Main) {
-                if (notes.isEmpty()) {
+            if (notes.isEmpty()) {
+                withContext(Dispatchers.Main) {
                     noNotes.visibility = View.VISIBLE
                     recyclerView.visibility = View.GONE
                 }
-                else {
+            }
+            else {
+                withContext(Dispatchers.Main) {
                     recyclerView.adapter = RecyclerAdapter(notes)
                     recyclerView.layoutManager = LinearLayoutManager(requireContext())
                     recyclerView.visibility = View.VISIBLE

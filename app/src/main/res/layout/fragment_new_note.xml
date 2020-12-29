@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="?colorOnSecondary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:context=".ui.NewNoteFragment">
@@ -19,6 +18,7 @@
             android:padding="@dimen/_10sdp"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
+            style="?colorOnPrimary"
             app:boxCornerRadiusTopEnd="@dimen/_5sdp"
             app:boxCornerRadiusTopStart="@dimen/_5sdp"
             app:startIconContentDescription="Heading">
@@ -37,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/_10sdp"
+            style="?colorOnPrimary"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:boxCornerRadiusTopEnd="@dimen/_5sdp"

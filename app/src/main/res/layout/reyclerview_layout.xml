@@ -1,52 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_margin="@dimen/_10sdp"
+<androidx.cardview.widget.CardView android:layout_margin="@dimen/_10sdp"
     android:id="@+id/noteContainer"
     android:focusable="true"
     android:clickable="true"
+    app:cardCornerRadius="@dimen/_5sdp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:paddingBottom="@dimen/_20sdp"
-    android:paddingTop="@dimen/_20sdp"
-    android:background="?cardBackground"
-    android:layout_height="wrap_content">
+    app:cardBackgroundColor="?cardBackground"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/heading"
-        android:fontFamily="@font/ubuntubold"
-        android:text="Heading"
-        style="?cardTextHeading"
-        android:textSize="@dimen/_20sdp"
-        android:layout_gravity="top|start"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:padding="@dimen/_5sdp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/content"
-        android:fontFamily="@font/ubuntumedium"
-        android:text="Note Contents"
-        style="?cardTextContent"
-        android:layout_gravity="start"
-        android:textSize="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_35sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_gravity="center|top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/datefield"
-        android:fontFamily="@font/ubunturegular"
-        android:text="Date field"
-        style="?cardTextDate"
-        android:layout_gravity="start"
-        android:textSize="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_65sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="start"
+                android:id="@+id/heading"
+                android:fontFamily="@font/ubuntubold"
+                android:text="Heading"
+                android:textColor="?cardTextHeading"
+                android:textSize="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/content"
+                android:fontFamily="@font/ubuntumedium"
+                android:text="Note Contents"
+                android:textColor="?cardTextContent"
+                android:textSize="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_gravity="center|bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/datefield"
+                android:fontFamily="@font/ubunturegular"
+                android:text="Date field"
+                android:textColor="?cardTextDate"
+                android:textSize="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.cardview.widget.CardView>
