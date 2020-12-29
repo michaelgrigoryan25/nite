@@ -16,7 +16,9 @@
 
     <color name="dimmed_gray">#6D6466</color>
     <color name="gray_web">#788585</color>
+    <color name="ash_gray">#CAD2C5</color>
 
+    <color name="dimmed_white">#F0F0F0</color>
     <color name="lavender_white">#F5EDF0</color>
     <color name="rich_white">#FEFFFE</color>
     <color name="mint_white">#F0F7F4</color>

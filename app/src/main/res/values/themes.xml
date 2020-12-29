@@ -14,9 +14,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
         <!-- Custom Values -->
-        <item name="cardBackground">@color/rich_white</item>
-        <item name="cardTextHeading">@color/raisin_black</item>
-        <item name="cardTextContent">@color/gray_web</item>
-        <item name="cardTextDate">@color/dimmed_gray</item>
+        <item name="cardBackground">@color/dimmed_white</item>
+        <item name="cardTextHeading">@color/rich_black</item>
+        <item name="cardTextContent">@color/raisin_black</item>
+        <item name="cardTextDate">@color/jet_black</item>
     </style>
 </resources>
