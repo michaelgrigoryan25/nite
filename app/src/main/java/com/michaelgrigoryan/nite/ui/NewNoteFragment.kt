@@ -54,7 +54,8 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
                 db.createNote(note)
                 withContext(Dispatchers.Main) {
                     view.clearFocus()
-                    view.findNavController().navigate(R.id.action_newNoteFragment_to_homeFragment)
+//                    view.findNavController().navigate(R.id.action_newNoteFragment_to_homeFragment)
+                    view.findNavController().popBackStack()
                 }
             }
         }

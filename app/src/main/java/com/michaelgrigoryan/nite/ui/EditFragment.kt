@@ -68,7 +68,8 @@ class EditFragment : Fragment() {
 
                 withContext(Dispatchers.Main) {
                     view.clearFocus()
-                    view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
+//                    view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
+                    view.findNavController().popBackStack()
                 }
             }
         }
