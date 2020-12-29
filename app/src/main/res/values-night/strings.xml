@@ -4,4 +4,6 @@
     <string name="more">More</string>
     <string name="no_notes">You don\'t have any notes</string>
     <string name="save_note">Save Note</string>
+    <string name="image">Image</string>
+    <string name="delete_note">Delete Note</string>
 </resources>

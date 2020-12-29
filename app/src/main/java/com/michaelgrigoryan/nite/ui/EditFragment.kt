@@ -28,15 +28,15 @@ class EditFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_edit, container, false)
 
+        val view = inflater.inflate(R.layout.fragment_edit, container, false)
+        val deleteButton: FloatingActionButton = view.findViewById(R.id.delete_note_button)
         val saveButton: FloatingActionButton = view.findViewById(R.id.save_edited_note_button)
         val headingInput: TextInputEditText = view.findViewById(R.id.input_heading)
         val contentInput: TextInputEditText = view.findViewById(R.id.input_content)
 
         headingInput.setText(args.noteToBeUpdated.heading)
         contentInput.setText(args.noteToBeUpdated.note)
-
         headingInput.doOnTextChanged { text, _, _, _ ->
             if (text?.length == 0 && contentInput.text?.length == 0) {
                 saveButton.hide()
@@ -44,12 +44,27 @@ class EditFragment : Fragment() {
                 saveButton.show()
             }
         }
-
         contentInput.doOnTextChanged { text, _, _, _ ->
             if (text?.length == 0 && headingInput.text?.length == 0) {
                 saveButton.hide()
             } else {
                 saveButton.show()
+            }
+        }
+        deleteButton.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO) {
+                val db = Database.setup(requireContext()).noteDao()
+
+                db.deleteNote(Note(
+                    args.noteToBeUpdated.id,
+                    args.noteToBeUpdated.heading,
+                    args.noteToBeUpdated.note,
+                    args.noteToBeUpdated.time
+                ))
+
+                withContext(Dispatchers.Main) {
+                    view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
+                }
             }
         }
 
@@ -60,12 +75,12 @@ class EditFragment : Fragment() {
                     args.noteToBeUpdated.id,
                     headingInput.text.toString(),
                     contentInput.text.toString(),
-                    SimpleDateFormat("dd/M/yyyy hh:mm").format(Date())
+                    SimpleDateFormat("dd/M/yyyy hh:mm", Locale.getDefault()).format(Date())
                 )
-
                 db.updateNote(updatedNote)
 
                 withContext(Dispatchers.Main) {
+                    view.clearFocus()
                     view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
                 }
             }

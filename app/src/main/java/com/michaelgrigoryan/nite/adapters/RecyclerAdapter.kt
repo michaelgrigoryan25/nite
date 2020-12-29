@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.michaelgrigoryan.nite.R
@@ -19,7 +19,7 @@ class RecyclerAdapter(
         val heading: TextView = view.findViewById(R.id.heading)
         val content: TextView = view.findViewById(R.id.content)
         val datefield: TextView = view.findViewById(R.id.datefield)
-        val container: CoordinatorLayout = view.findViewById(R.id.noteContainer)
+        val container: CardView = view.findViewById(R.id.noteContainer)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,6 +38,9 @@ class RecyclerAdapter(
                 (string.trim().subSequence(0, maxChar)).toString() + "..."
             }
         }
+
+        if (notes[position].heading.toString().isEmpty()) holder.heading.visibility = View.GONE
+        if (notes[position].note.toString().isEmpty()) holder.content.visibility = View.GONE
 
         holder.heading.text = truncateString(notes[position].heading.toString(), 20)
         holder.content.text = truncateString(notes[position].note.toString(), 15)

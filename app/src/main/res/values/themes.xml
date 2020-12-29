@@ -17,6 +17,6 @@
         <item name="cardBackground">@color/rich_white</item>
         <item name="cardTextHeading">@color/raisin_black</item>
         <item name="cardTextContent">@color/gray_web</item>
-        <item name="cardTextDate">@color/dimmed_gray</item>
+        <item name="cardTextDate">@color/blue_crayola</item>
     </style>
 </resources>
