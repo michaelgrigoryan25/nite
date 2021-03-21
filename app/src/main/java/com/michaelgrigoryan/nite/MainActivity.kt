@@ -28,7 +28,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     /*
-     * When using setupActionBarWithNavController(), you need to override onSupportNavigateUp() to trigger the Up icon in the Action Bar as per the documentation at:
+     * When using setupActionBarWithNavController(),
+     * you need to override onSupportNavigateUp()
+     * to trigger the Up icon in the Action Bar
+     * as per the documentation at:
      * https://developer.android.com/guide/navigation/navigation-ui#action_bar
      */
     override fun onSupportNavigateUp(): Boolean {

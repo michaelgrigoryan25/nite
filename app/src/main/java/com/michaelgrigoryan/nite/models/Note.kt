@@ -6,11 +6,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Parcelize @Entity
+@Parcelize
+@Entity
 data class Note(
         @PrimaryKey(autoGenerate = true) val id: Int = 0,
-        @ColumnInfo(name = "heading") var heading: String?,
-        @ColumnInfo(name = "note") val note: String?,
+        @ColumnInfo(name = "note") val note: String,
         @ColumnInfo(name = "time") val time: String
 ): Parcelable
 

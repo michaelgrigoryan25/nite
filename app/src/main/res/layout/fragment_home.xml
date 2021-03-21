@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/no_notes"
-        android:textColor="@color/dimmed_gray"
+        android:textColor="?noNotesText"
         android:textSize="@dimen/_20sdp"
         android:visibility="gone"/>
 

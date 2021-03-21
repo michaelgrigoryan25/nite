@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -30,34 +31,23 @@ class EditFragment : Fragment() {
     ): View {
 
         val view = inflater.inflate(R.layout.fragment_edit, container, false)
-        val saveButton: FloatingActionButton = view.findViewById(R.id.save_edited_note_button)
-        val deleteButton: FloatingActionButton = view.findViewById(R.id.delete_note_button)
-        val headingInput: TextInputEditText = view.findViewById(R.id.input_heading)
-        val contentInput: TextInputEditText = view.findViewById(R.id.input_content)
 
-        headingInput.setText(args.noteToBeUpdated.heading)
+        val deleteButton: ImageView = view.findViewById(R.id.delete_note_button)
+        val contentInput: TextInputEditText = view.findViewById(R.id.input_content)
+        val saveButton: FloatingActionButton = view.findViewById(R.id.save_edited_note_button)
+
         contentInput.setText(args.noteToBeUpdated.note)
-        headingInput.doOnTextChanged { text, _, _, _ ->
-            if (text?.length == 0 && contentInput.text?.length == 0) {
-                saveButton.hide()
-            } else {
-                saveButton.show()
-            }
-        }
         contentInput.doOnTextChanged { text, _, _, _ ->
-            if (text?.length == 0 && headingInput.text?.length == 0) {
-                saveButton.hide()
-            } else {
-                saveButton.show()
-            }
+            if (text!!.isEmpty()) saveButton.hide()
+            else saveButton.show()
         }
+
         deleteButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.IO) {
                 val db = Database.setup(requireContext()).noteDao()
 
                 db.deleteNote(Note(
                     args.noteToBeUpdated.id,
-                    args.noteToBeUpdated.heading,
                     args.noteToBeUpdated.note,
                     args.noteToBeUpdated.time
                 ))
@@ -74,16 +64,14 @@ class EditFragment : Fragment() {
                 db.deleteNote(
                         Note(
                                 args.noteToBeUpdated.id,
-                                args.noteToBeUpdated.heading,
                                 args.noteToBeUpdated.note,
                                 args.noteToBeUpdated.time
                         )
                 )
 
                 withContext(Dispatchers.Main) {
-                    view.clearFocus()
-//                    view.findNavController().navigate(R.id.action_editFragment_to_homeFragment)
                     view.findNavController().popBackStack()
+                    view.clearFocus()
                 }
             }
         }
@@ -93,7 +81,6 @@ class EditFragment : Fragment() {
                 val db = Database.setup(requireContext()).noteDao()
                 val updatedNote = Note(
                     args.noteToBeUpdated.id,
-                    headingInput.text.toString(),
                     contentInput.text.toString(),
                     SimpleDateFormat("MMMM dd hh:mm", Locale.getDefault()).format(Date())
                 )

@@ -3,23 +3,31 @@ package com.michaelgrigoryan.nite.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.michaelgrigoryan.nite.R
+import com.michaelgrigoryan.nite.database.Database
 import com.michaelgrigoryan.nite.models.Note
 import com.michaelgrigoryan.nite.ui.HomeFragmentDirections
+import com.michaelgrigoryan.nite.util.truncateString
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RecyclerAdapter(
-    private val notes: List<Note>
+    private val notes: MutableList<Note>
 ): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val heading: TextView = view.findViewById(R.id.heading)
         val content: TextView = view.findViewById(R.id.content)
-        val datefield: TextView = view.findViewById(R.id.datefield)
+        val dateField: TextView = view.findViewById(R.id.datefield)
         val container: CardView = view.findViewById(R.id.noteContainer)
+        val deleteNote: ImageView = view.findViewById(R.id.delete_note_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,22 +38,39 @@ class RecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // Setting the last modified date on the holder
+        holder.dateField.text = ("Last edited at ${notes[position].time}")
+        // Truncating the note and setting note holder text
+        holder.content.text = truncateString(notes[position].note!!, 15)
 
-        fun truncateString(string: String, maxChar: Int): String {
-            return if (string.length < maxChar) {
-                string
-            } else {
-                (string.trim().subSequence(0, maxChar)).toString() + "..."
+        // Setting an onClick event listener on delete icon
+        holder.deleteNote.setOnClickListener {
+            // Running in coroutine thread
+            GlobalScope.launch(Dispatchers.IO) {
+                val db = Database
+                    .setup(it.context.applicationContext)
+                    .noteDao()
+
+                // Deleting the note from the database
+                db.deleteNote(notes[position])
+
+                // Running in main thread
+                withContext(Dispatchers.Main) {
+                    // Removing the note from the list
+                    notes.remove(notes[position])
+                    // Notifying the recycler view that the data has changed
+                    notifyItemRemoved(position)
+                    // Notifying the recycler view that the data set has changed
+                    notifyDataSetChanged()
+                    // Toasting
+                    Toast.makeText(it.context.applicationContext, "Note deleted", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
-        if (notes[position].heading.toString().isEmpty()) holder.heading.visibility = View.GONE
-        if (notes[position].note.toString().isEmpty()) holder.content.visibility = View.GONE
-
-        holder.heading.text = truncateString(notes[position].heading.toString(), 20)
-        holder.content.text = truncateString(notes[position].note.toString(), 15)
-        holder.datefield.text = ("Last edited at " + notes[position].time)
+        // Setting an onClick listener on the container itself
         holder.container.setOnClickListener {
+            // Navigating to EditNote fragment
             val action = HomeFragmentDirections.actionHomeFragmentToEditFragment(notes[position])
             holder.container.findNavController().navigate(action)
         }

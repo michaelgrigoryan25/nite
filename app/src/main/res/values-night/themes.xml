@@ -1,23 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.Nite" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/ochre_orange</item>
-        <item name="colorPrimaryVariant">@color/ochre_orange</item>
         <item name="colorOnPrimary">@color/rich_white</item>
-        <!-- Secondary brand color. -->
+        <item name="colorPrimary">@color/ochre_orange</item>
         <item name="colorSecondary">@color/ochre_orange</item>
-        <item name="colorSecondaryVariant">@color/moss_green</item>
         <item name="colorOnSecondary">@color/rich_black</item>
+        <item name="colorSecondaryVariant">@color/moss_green</item>
+        <item name="colorPrimaryVariant">@color/ochre_orange</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
 
         <!-- Custom Values -->
-        <item name="cardBackground">@color/dimmed_black</item>
-        <item name="cardTextHeading">@color/white_alternative</item>
-        <item name="cardTextContent">@color/dimmed_gray</item>
+        <item name="noNotesText">@color/lavender_white</item>
         <item name="cardTextDate">@color/ochre_orange</item>
+        <item name="cardBackground">@color/dimmed_black</item>
+        <item name="cardTextContent">@color/dimmed_gray</item>
+        <item name="cardTextHeading">@color/white_alternative</item>
+        <item name="contentInput">?attr/colorOnSecondary</item>
     </style>
 </resources>

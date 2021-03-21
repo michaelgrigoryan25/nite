@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.michaelgrigoryan.nite.models.Note
 
-@Database(entities = [Note::class], version = 4)
+@Database(entities = [Note::class], version = 5)
 abstract class Database: RoomDatabase() {
     abstract fun noteDao(): NoteDao
 

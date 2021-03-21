@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--  Card background  -->
     <attr name="cardBackground" format="reference" />
 
     <!--  Text inside the card  -->
+    <attr name="cardTextDate" format="reference" />
     <attr name="cardTextHeading" format="reference" />
     <attr name="cardTextContent" format="reference" />
-    <attr name="cardTextDate" format="reference" />
+
+    <!-- No notes text -->
+    <attr name="noNotesText" format="reference" />
+
+    <!-- Content Input -->
+    <attr name="contentInput" format="reference" />
 </resources>

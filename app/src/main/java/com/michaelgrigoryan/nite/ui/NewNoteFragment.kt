@@ -21,24 +21,12 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val saveButton:   FloatingActionButton = view.findViewById(R.id.save_note_button)
-        val headingInput: TextInputEditText = view.findViewById(R.id.input_heading)
         val contentInput: TextInputEditText = view.findViewById(R.id.input_content)
-
-        headingInput.doOnTextChanged { text, _, _, _ ->
-            if (text?.length == 0 && contentInput.text?.length == 0) {
-                saveButton.hide()
-            } else {
-                saveButton.show()
-            }
-        }
+        val saveButton:   FloatingActionButton = view.findViewById(R.id.save_note_button)
 
         contentInput.doOnTextChanged { text, _, _, _ ->
-            if (text?.length == 0 && headingInput.text?.length == 0) {
-                saveButton.hide()
-            } else {
-                saveButton.show()
-            }
+            if (text!!.isEmpty()) saveButton.hide()
+             else saveButton.show()
         }
 
         saveButton.setOnClickListener {
@@ -46,16 +34,14 @@ class NewNoteFragment : Fragment(R.layout.fragment_new_note) {
                 val db = Database.setup(requireContext()).noteDao()
                 val note = Note(
                         0,
-                        headingInput.text.toString(),
                         contentInput.text.toString(),
                         SimpleDateFormat("MMMM dd hh:mm").format(Date())
                 )
-
                 db.createNote(note)
+
                 withContext(Dispatchers.Main) {
-                    view.clearFocus()
-//                    view.findNavController().navigate(R.id.action_newNoteFragment_to_homeFragment)
                     view.findNavController().popBackStack()
+                    view.clearFocus()
                 }
             }
         }
